@@ -38,7 +38,7 @@ ts-monorepo/
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v18 or higher)
+- [Node.js](https://nodejs.org/) (v22 LTS or higher)
 - [PNPM](https://pnpm.io/) (v8 or higher)
 
 ### Installation
@@ -122,11 +122,20 @@ Releasing is handled automatically through GitHub Actions when changes are merge
 
 #### Setting Up npm Publishing
 
-To enable npm publishing:
+By default, all packages are marked as `"private": true` to prevent accidental publishing. To publish packages to npm:
 
-1. Generate an npm access token with publish permissions
-2. Add the token as a repository secret named `NPM_TOKEN` in GitHub
-3. Ensure your packages have unique names in the npm registry
+1. In the package's `package.json`, change `"private": true` to `"private": false`
+2. Add a `publishConfig` section:
+   ```json
+   "publishConfig": {
+     "access": "public"
+   }
+   ```
+3. Generate an npm access token with publish permissions from [npmjs.com](https://www.npmjs.com/settings/~/tokens)
+4. Add the token as a repository secret named `NPM_TOKEN` in GitHub (Settings → Secrets and variables → Actions)
+5. Ensure your package names are unique in the npm registry or use a scoped package name
+
+**Note:** The release workflow only runs after the CI workflow succeeds on the `main` branch.
 
 ## Working with this Monorepo
 

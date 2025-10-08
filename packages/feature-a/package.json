@@ -1,10 +1,7 @@
 {
   "name": "@monorepo/feature-a",
   "version": "0.1.0",
-  "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
+  "private": true,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

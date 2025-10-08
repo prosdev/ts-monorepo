@@ -1,5 +1,10 @@
 name: Release
 
+# This workflow runs after CI succeeds on the main branch.
+# By default, all packages are private and won't be published to npm.
+# To enable publishing: set "private": false in package.json and add NPM_TOKEN secret.
+# See README.md for detailed setup instructions.
+
 on:
   workflow_run:
     workflows: ["CI"]
