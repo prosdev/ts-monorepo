@@ -237,6 +237,40 @@ pnpm list --depth 0  # See all workspace packages
 - All packages default to private to prevent accidental publishing
 - Review dependencies regularly: `pnpm audit`
 
+## Versioning Strategy
+
+This template follows [Semantic Versioning 2.0.0](https://semver.org/) at the **repository level**, not per-package.
+
+### Repository Versioning
+
+Git tags use the format `vMAJOR.MINOR.PATCH` (e.g., `v1.0.0`, `v1.1.0`):
+
+- **MAJOR**: Breaking changes to template structure, tooling, or workflows
+  - Example: Changing package manager, build system, or major workflow restructuring
+  - Users must adapt their code when upgrading
+
+- **MINOR**: New features, packages, or improvements (backward compatible)
+  - Example: Adding new example packages, new GitHub Actions workflows, new tooling
+  - Users can adopt new features without breaking changes
+
+- **PATCH**: Bug fixes, documentation updates, dependency patches
+  - Example: Fixing CI configuration, updating README, security patches
+  - Safe to update without any code changes
+
+### Package Versioning
+
+Individual packages remain at `0.1.0` by default:
+- Packages are private by default (`"private": true`)
+- Users customize package names and versions after cloning
+- Version according to [Semantic Versioning](https://semver.org/) once users start developing
+
+### Pre-release Versions
+
+Use pre-release tags for experimental features:
+- `v2.0.0-alpha.1` - Early testing, unstable
+- `v2.0.0-beta.1` - Feature complete, testing phase
+- `v2.0.0-rc.1` - Release candidate, final testing
+
 ## Template Customization
 
 When using this template:
@@ -247,3 +281,4 @@ When using this template:
 4. Customize README.md for your project
 5. Decide which packages should be public vs private
 6. Update GitHub secrets if publishing to npm
+7. Start versioning your packages from `0.1.0` according to your development needs

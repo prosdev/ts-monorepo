@@ -1,5 +1,9 @@
 # TypeScript Monorepo Starter
 
+[![Node.js](https://img.shields.io/badge/node-%3E%3D22-brightgreen.svg)](https://nodejs.org/)
+[![pnpm](https://img.shields.io/badge/pnpm-8.15.4-orange.svg)](https://pnpm.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A modern TypeScript monorepo starter template with best practices for scalable projects.
 
 ## Features
@@ -155,6 +159,20 @@ Packages can depend on each other using the workspace protocol:
   "@monorepo/core": "workspace:*"
 }
 ```
+
+## Versioning
+
+This template follows [Semantic Versioning](https://semver.org/) at the repository level:
+
+- **Git tags**: `v1.0.0`, `v1.1.0`, `v2.0.0` (for template releases)
+- **Package versions**: Remain at `0.1.0` by default (customize after cloning)
+
+**Version bumps:**
+- **MAJOR**: Breaking changes to template structure or tooling
+- **MINOR**: New features, examples, or improvements
+- **PATCH**: Bug fixes, documentation updates
+
+See [AGENTS.md](AGENTS.md) for detailed versioning strategy.
 
 ## License
 
