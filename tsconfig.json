@@ -1,0 +1,26 @@
+{
+  "extends": "@tsconfig/node-lts/tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "Node16",
+    "module": "NodeNext",
+    "declaration": true,
+    "composite": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "lib": ["ES2022", "DOM"],
+    "baseUrl": ".",
+    "paths": {
+      "@monorepo/core": ["packages/core/src"],
+      "@monorepo/core/*": ["packages/core/src/*"],
+      "@monorepo/utils": ["packages/utils/src"],
+      "@monorepo/utils/*": ["packages/utils/src/*"],
+      "@monorepo/feature-a": ["packages/feature-a/src"],
+      "@monorepo/feature-a/*": ["packages/feature-a/src/*"]
+    }
+  },
+  "exclude": ["node_modules"],
+  "files": []
+}

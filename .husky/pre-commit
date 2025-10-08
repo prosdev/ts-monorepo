@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Get staged files
+files=$(git diff --cached --name-only --diff-filter=ACMR "*.ts" "*.tsx" "*.js" "*.jsx" | xargs)
+
+if [ -n "$files" ]; then
+  echo "Running Biome on staged files: $files"
+  npx biome check --apply --no-errors-on-unmatched $files
+  git add $files
+fi
+
+# Run TypeScript type check
+npm run typecheck
