@@ -1,5 +1,5 @@
-import { CoreService, CoreConfig } from '@monorepo/core';
-import { Logger, createLogger } from '@monorepo/utils';
+import { type CoreConfig, CoreService } from '@monorepo/core';
+import { createLogger, type Logger } from '@monorepo/utils';
 
 export interface FeatureConfig extends CoreConfig {
   featureName: string;
